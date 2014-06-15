@@ -1,12 +1,11 @@
 {
   "name": "language-robot-framework",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Robot Framework syntax highlight for Atom",
   "repository": "https://github.com/wingyplus/language-robot-framework",
   "license": "MIT",
   "engines": {
     "atom": ">0.50.0"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
