@@ -1,0 +1,31 @@
+'comment': '\n\tRobot Framework syntax highlighting for txt format.\t\n\t'
+'fileTypes': [
+  'txt',
+  'robot'
+]
+'name': 'Robot Framework'
+'patterns': [
+  {
+    'match': '(^\\*\\*\\*.*?\\*\\*\\*)|((?<=^\\|)\\s+\\*\\*\\*.*?\\*\\*\\*)'
+    'name': 'string.robot.header'
+  }
+  {
+    'match': '\\[.*?\\]'
+    'name': 'storage.type.method.robot'
+  }
+  {
+    'match': '(\\$\\{.*?\\})|(@\\{.*?\\})'
+    'name': 'variable.language.robot'
+  }
+  {
+    'begin': '(?<!\\\\)#'
+    'end': '$'
+    'name': 'comment.robot'
+  }
+  {
+    'begin': '(^[^ \\t\\*\\n\\|]+)|((?<=^\\|)\\s+[^ \\t\\*\\n\\|]+)'
+    'end': '\\s{2}|\\t|$|\\s+(?=\\|)'
+    'name': 'keyword.control.robot'
+  }
+]
+'scopeName': 'text.robot'
