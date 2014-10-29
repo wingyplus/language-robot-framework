@@ -6,3 +6,7 @@ Test given keyword should show color
 Test when keyword should show color
     When Mark as same test case color
     It should be mark When keyword at start step only
+
+Test then keyword should show color
+    Then Mark as same test case color
+    It should be mark Then keyword at start step only
