@@ -1,3 +1,6 @@
+## 0.2.0
+* Support syntax highlight for keyword "Given", "When" and "Then"
+
 ## 0.1.0 - First Release
-* Every feature added
-* Every bug fixed
+* Add Robot Framework syntax highlight (convert from TextMate bundle)
+* Auto change to Robot Framework syntax when extension file is "robot"
