@@ -6,18 +6,6 @@
 'name': 'Robot Framework'
 'patterns': [
   {
-    'match': '(^\\s+|\\t+)Given',
-    'name': 'keyword.control.robot'
-  }
-  {
-    'match': '(^\\s+|\\t+)When',
-    'name': 'keyword.control.robot'
-  }
-  {
-    'match': '(^\\s+|\\t+)Then',
-    'name': 'keyword.control.robot'
-  }
-  {
     'match': '(^\\*\\*\\*.*?\\*\\*\\*)|((?<=^\\|)\\s+\\*\\*\\*.*?\\*\\*\\*)'
     'name': 'string.robot.header'
   }
@@ -37,6 +25,18 @@
   {
     'begin': '(^[^ \\t\\*\\n\\|]+)|((?<=^\\|)\\s+[^ \\t\\*\\n\\|]+)'
     'end': '\\s{2}|\\t|$|\\s+(?=\\|)'
+    'name': 'keyword.control.robot'
+  }
+  {
+    'match': '(^\\s+|\\t+)Given',
+    'name': 'keyword.control.robot'
+  }
+  {
+    'match': '(^\\s+|\\t+)When',
+    'name': 'keyword.control.robot'
+  }
+  {
+    'match': '(^\\s+|\\t+)Then',
     'name': 'keyword.control.robot'
   }
 ]
