@@ -6,6 +6,10 @@
 'name': 'Robot Framework'
 'patterns': [
   {
+    'match': '(^\\s+|\\t+)Given',
+    'name': 'keyword.control.robot'
+  }
+  {
     'match': '(^\\*\\*\\*.*?\\*\\*\\*)|((?<=^\\|)\\s+\\*\\*\\*.*?\\*\\*\\*)'
     'name': 'string.robot.header'
   }
