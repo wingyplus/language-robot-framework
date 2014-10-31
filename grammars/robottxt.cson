@@ -28,19 +28,7 @@
     'name': 'keyword.control.robot'
   }
   {
-    'match': '(^\\s+|\\t+)Given'
-    'name': 'keyword.control.robot'
-  }
-  {
-    'match': '(^\\s+|\\t+)When'
-    'name': 'keyword.control.robot'
-  }
-  {
-    'match': '(^\\s+|\\t+)Then'
-    'name': 'keyword.control.robot'
-  }
-  {
-    'match': '(^\\s+|\\t+)And'
+    'match': '(^\\s+|\\t+)(Given|When|And|Then)'
     'name': 'keyword.control.robot'
   }
 ]
