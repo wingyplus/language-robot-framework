@@ -28,15 +28,15 @@
     'name': 'keyword.control.robot'
   }
   {
-    'match': '(^\\s+|\\t+)Given',
+    'match': '(^\\s+|\\t+)Given'
     'name': 'keyword.control.robot'
   }
   {
-    'match': '(^\\s+|\\t+)When',
+    'match': '(^\\s+|\\t+)When'
     'name': 'keyword.control.robot'
   }
   {
-    'match': '(^\\s+|\\t+)Then',
+    'match': '(^\\s+|\\t+)Then'
     'name': 'keyword.control.robot'
   }
   {
