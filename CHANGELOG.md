@@ -1,3 +1,6 @@
+## 0.4.0
+* Support "And" keyword highlight
+
 ## 0.3.0
 * Add Robot Framework Selenium2Library Snippet verson 1.0.0
 
