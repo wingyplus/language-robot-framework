@@ -1,0 +1,5 @@
+*** Settings ***
+
+
+*** Test Cases ***
+It should be enable syntax when text file has begin with settings block

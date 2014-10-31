@@ -1,6 +1,5 @@
 'comment': '\n\tRobot Framework syntax highlighting for txt format.\t\n\t'
 'fileTypes': [
-  'txt',
   'robot'
 ]
 'name': 'Robot Framework'
