@@ -39,5 +39,9 @@
     'match': '(^\\s+|\\t+)Then',
     'name': 'keyword.control.robot'
   }
+  {
+    'match': '(^\\s+|\\t+)And'
+    'name': 'keyword.control.robot'
+  }
 ]
 'scopeName': 'text.robot'
