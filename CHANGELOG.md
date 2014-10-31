@@ -1,3 +1,6 @@
+## 0.3.0
+* Add Robot Framework Selenium2Library Snippet verson 1.0.0
+
 ## 0.2.0
 * Support syntax highlight for keyword "Given", "When" and "Then"
 
