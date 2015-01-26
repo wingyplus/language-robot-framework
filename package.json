@@ -7,8 +7,5 @@
   "engines": {
     "atom": ">0.50.0"
   },
-  "dependencies": {},
-  "packageDependencies": {
-    "robot-selenium-snippet": "1.0.0"
-  }
+  "dependencies": {}
 }
