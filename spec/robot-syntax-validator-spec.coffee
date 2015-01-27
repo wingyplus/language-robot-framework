@@ -6,14 +6,17 @@ describe 'RobotSyntaxValidator', ->
 
 
   it 'true when has robot framework header block in first line', ->
-    expect(@validator.isRobotSyntax block) for block in [
+    blocks = [
       '*** Settings ***',
       '*** settings ***',
       '*** Variables ***',
       '*** variables ***',
       '*** Test Cases ***',
-      '*** test cases ***'
+      '*** test cases ***',
+      '*** Keywords ***',
+      '*** keywords ***',
     ]
+    expect(@validator.isRobotSyntax block).toBe(true) for block in blocks
 
   it 'false when empty string', ->
     expect(@validator.isRobotSyntax '').toBe(false)

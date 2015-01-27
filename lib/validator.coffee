@@ -1,5 +1,5 @@
 class RobotSyntaxValidator
   isRobotSyntax: (content) ->
-    /^\*{3}\ (Settings|Variables|Test Cases)\ \*{3}/i.test content
+    /^\*{3}\ (Settings|Variables|Test Cases|Keywords)\ \*{3}/i.test content
 
 module.exports = RobotSyntaxValidator
