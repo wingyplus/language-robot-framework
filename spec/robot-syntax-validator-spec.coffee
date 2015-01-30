@@ -4,7 +4,6 @@ describe 'RobotSyntaxValidator', ->
   beforeEach ->
     @validator = new RobotSyntaxValidator()
 
-
   it 'true when has robot framework header block in first line', ->
     blocks = [
       '*** Settings ***',
