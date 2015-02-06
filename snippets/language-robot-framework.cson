@@ -1,7 +1,11 @@
 '.text.robot':
   'Hello world':
     'prefix': 'hello'
-    'body': '*** Test Cases ***\nExample test\n\tLog\t\tHello world'
+    'body': '''
+      *** Test Cases ***
+      Example test
+      Log    Hello world
+    '''
   'Keywords':
     'prefix': '*k'
     'body': '*** Keywords ***'
@@ -14,3 +18,9 @@
   'Variables':
     'prefix': '*v'
     'body': '*** Variables ***'
+  'Documentation':
+    'prefix': ':doc'
+    'body': '[Documentation]    ${1:description}'
+  'Tags':
+    'prefix': ':tags'
+    'body': '[Tags]    ${1:tag}'
