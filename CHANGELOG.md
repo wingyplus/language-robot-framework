@@ -1,3 +1,10 @@
+## 0.6.0
+* Add snippets Documentation and Tags
+* Fix It's comment if the # is the first symbol in the cell.
+
+## 0.5.0
+* Refactor some test.
+
 ## 0.4.0
 * Support "And" keyword highlight
 
