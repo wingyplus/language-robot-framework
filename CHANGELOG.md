@@ -1,3 +1,6 @@
+## 0.7.0
+* Fix [#8](https://github.com/wingyplus/language-robot-framework/issues/8) - Failed to activate the language-robot-framework package
+
 ## 0.6.0
 * Add snippets Documentation and Tags
 * Fix It's comment if the # is the first symbol in the cell.
