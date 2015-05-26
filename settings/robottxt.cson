@@ -1,0 +1,3 @@
+'.text.robot':
+  'editor':
+    'commentStart': '# '
