@@ -1,8 +1,6 @@
-RobotSyntaxValidator = require '../lib/validator'
+{validator} = require('../lib/robot/syntax')
 
-describe 'RobotSyntaxValidator', ->
-  beforeEach ->
-    @validator = new RobotSyntaxValidator()
+describe 'SyntaxValidator', ->
 
   it 'true when has robot framework header block in first line', ->
     blocks = [
@@ -15,10 +13,10 @@ describe 'RobotSyntaxValidator', ->
       '*** Keywords ***',
       '*** keywords ***',
     ]
-    expect(@validator.isRobotSyntax block).toBe(true) for block in blocks
+    expect(validator.isRobotSyntax block).toBe(true) for block in blocks
 
   it 'false when empty string', ->
-    expect(@validator.isRobotSyntax '').toBe(false)
+    expect(validator.isRobotSyntax '').toBe(false)
 
   it 'false when first line is robot framework header block', ->
-    expect(@validator.isRobotSyntax 'class RobotSyntax').toBe false
+    expect(validator.isRobotSyntax 'class RobotSyntax').toBe false
