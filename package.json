@@ -4,6 +4,7 @@
   "description": "Robot Framework syntax highlight for Atom",
   "repository": "https://github.com/wingyplus/language-robot-framework",
   "license": "MIT",
+  "main": "./lib/robot",
   "engines": {
     "atom": ">0.50.0"
   },

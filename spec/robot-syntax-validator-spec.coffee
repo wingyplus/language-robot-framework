@@ -1,4 +1,4 @@
-{validator} = require('../lib/robot/syntax')
+{validator} = require('../lib/syntax')
 
 describe 'validator', ->
 
