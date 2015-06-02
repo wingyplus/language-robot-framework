@@ -40,6 +40,7 @@ func (k *keyword) String() string {
 	return fmt.Sprintf(`  {
     text: '%s'
     snippet: '%s'
+    rightLabel: 'Selenium2Library'
     type: 'function'
   }`, k.Name, k.snipFunc())
 }
