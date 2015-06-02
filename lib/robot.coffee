@@ -1,4 +1,5 @@
 {validator} = require './syntax'
+provider = require './autocomplete-provider'
 
 isTextFile = (editor) -> validator.isTextFile editor.getPath()
 
@@ -21,6 +22,9 @@ registerListener = ->
     promise.then setRobotSyntax, pass
 
 module.exports =
+
+  provider: -> provider
+
   activate: (state) ->
     atom.packages.activatePackage('language-robot-framework')
       .then registerListener
