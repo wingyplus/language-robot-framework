@@ -22,4 +22,5 @@ registerListener = ->
 
 module.exports =
   activate: (state) ->
-    atom.packages.activatePackage('language-robot-framework').then registerListener
+    atom.packages.activatePackage('language-robot-framework')
+      .then registerListener
