@@ -8,6 +8,7 @@ def snippet_argument(arg):
     return "${%d:%s}" % (arg[0], arg[1])
 
 
+print('# coffeelint: disable=max_line_length')
 print('module.exports = [')
 
 for keyword in keywords:
