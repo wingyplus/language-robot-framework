@@ -54,6 +54,12 @@ module.exports = [
     type: 'function'
   }
   {
+    text: 'Clear Element Text'
+    snippet: 'Clear Element Text  ${1:locator}'
+    rightLabel: 'Selenium2Library'
+    type: 'function'
+  }
+  {
     text: 'Click Button'
     snippet: 'Click Button  ${1:locator}'
     rightLabel: 'Selenium2Library'
@@ -228,14 +234,14 @@ module.exports = [
     type: 'function'
   }
   {
-    text: 'Get Cookies'
-    snippet: 'Get Cookies'
+    text: 'Get Cookie Value'
+    snippet: 'Get Cookie Value  ${1:name}'
     rightLabel: 'Selenium2Library'
     type: 'function'
   }
   {
-    text: 'Get Cookie Value'
-    snippet: 'Get Cookie Value  ${1:name}'
+    text: 'Get Cookies'
+    snippet: 'Get Cookies'
     rightLabel: 'Selenium2Library'
     type: 'function'
   }
@@ -416,6 +422,12 @@ module.exports = [
   {
     text: 'Location Should Contain'
     snippet: 'Location Should Contain  ${1:expected}'
+    rightLabel: 'Selenium2Library'
+    type: 'function'
+  }
+  {
+    text: 'Locator Should Match X Times'
+    snippet: 'Locator Should Match X Times  ${1:locator}  ${2:expected_locator_count}  ${3:message=}  ${4:loglevel=INFO}'
     rightLabel: 'Selenium2Library'
     type: 'function'
   }
