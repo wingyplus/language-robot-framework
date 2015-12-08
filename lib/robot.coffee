@@ -10,7 +10,7 @@ setRobotSyntax = (editor) -> editor.setGrammar robotSyntax()
 
 pass = -> # do nothing
 
-registerListener = ->
+changeGrammarWhenOpenRobotFile = ->
   rules = [isTextFile, isRobotSyntax]
 
   atom.workspace.observeTextEditors (editor) ->
@@ -22,5 +22,4 @@ registerListener = ->
 
 module.exports =
   activate: (state) ->
-    atom.packages.activatePackage('language-robot-framework')
-      .then registerListener
+    changeGrammarWhenOpenRobotFile()
