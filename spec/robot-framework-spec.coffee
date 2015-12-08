@@ -55,3 +55,18 @@ describe 'Robot Framework grammar', ->
         {tokens} = grammar.tokenizeLine '   Do Some ${var} Keyword'
 
         expect(tokens[1].value).toEqual '${var}'
+
+    describe 'list', ->
+
+      it 'tokenizes variable', ->
+        {tokens} = grammar.tokenizeLine '@{list_var}'
+
+        expect(tokens[0].scopes).toEqual [
+          'text.robot',
+          'variable.language.robot'
+        ]
+
+      it 'tokenizes variable in step keyword', ->
+        {tokens} = grammar.tokenizeLine '   Do Some @{list_var} Keyword'
+
+        expect(tokens[1].value).toEqual '@{list_var}'
