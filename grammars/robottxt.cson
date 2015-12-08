@@ -14,7 +14,7 @@
     'name': 'storage.type.method.robot'
   }
   {
-    'match': '(\\$\\{.*?\\})|(@\\{.*?\\})'
+    'match': '(\\${.*?})|(@{.*?})|(&{.*?})'
     'name': 'variable.language.robot'
   }
   {
