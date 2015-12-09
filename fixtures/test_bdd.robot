@@ -14,3 +14,7 @@ Test then keyword should show color
 Test and keyword should show color
     And Mark as same test case color
     It should be mark And keyword at start step only
+
+Test and keyword should show color
+    But Mark as same test case color
+    It should be mark And keyword at start step only

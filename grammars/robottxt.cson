@@ -28,7 +28,7 @@
     'name': 'keyword.control.robot'
   }
   {
-    'match': '(^\\s+|\\t+)(Given|When|And|Then)'
+    'match': '(^\\s+|\\t+)(Given|When|And|Then|But)'
     'name': 'keyword.control.robot'
   }
 ]

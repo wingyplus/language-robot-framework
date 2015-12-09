@@ -113,3 +113,9 @@ describe 'Robot Framework grammar', ->
 
         expect(tokens[0].scopes).toEqual expectedScopes
         expect(tokens[0].value).toEqual '   And'
+
+      it 'tokenizes But', ->
+        {tokens} = grammar.tokenizeLine '   But Do Something'
+
+        expect(tokens[0].scopes).toEqual expectedScopes
+        expect(tokens[0].value).toEqual '   But'
