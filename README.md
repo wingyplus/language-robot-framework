@@ -1,8 +1,10 @@
-# language-robot-framework package
+language-robot-framework package
+================================
 
 [![Build Status](https://travis-ci.org/wingyplus/language-robot-framework.svg)](https://travis-ci.org/wingyplus/language-robot-framework)
 
-Plugin for Atom Text Editor.
+Adds syntax highlighting and snippets to Robot Framework files in Atom.
 
-* Syntax highlight automatic detection/activation for .robot file. (.txt must be set syntax to `Robot Framework`)
-* Snippets for Selenium2Library keywords see [snippets](https://github.com/wingyplus/robot-selenium-snippet/tree/master/snippets) for more information
+Thanks
+------
+[@roongr2k7 (Pitsanu Swangpheaw)](https://github.com/roongr2k7)
