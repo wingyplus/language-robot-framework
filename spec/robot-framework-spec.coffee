@@ -119,3 +119,11 @@ describe 'Robot Framework grammar', ->
 
       expect(tokens[0].scopes).toEqual expectedScopes
       expect(tokens[0].value).toEqual '    But'
+
+    describe 'issue 12', ->
+
+      it "should tokenizes 'And' when it isn't at the start of a keyword", ->
+        {tokens} = grammar.tokenizeLine '    Press And Hold The Button'
+
+        expect(tokens.length).toEqual 1
+        expect(tokens[0].value).toEqual '    Press And Hold The Button'
