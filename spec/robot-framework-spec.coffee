@@ -86,36 +86,36 @@ describe 'Robot Framework grammar', ->
 
         expect(tokens[1].value).toEqual '&{dict_var}'
 
-    describe 'bdd style', ->
+  describe 'bdd style', ->
 
-      expectedScopes = ['text.robot', 'keyword.control.robot']
+    expectedScopes = ['text.robot', 'keyword.control.robot']
 
-      it 'tokenizes Given', ->
-        {tokens} = grammar.tokenizeLine '   Given Do Something'
+    it 'tokenizes Given', ->
+      {tokens} = grammar.tokenizeLine '    Given Do Something'
 
-        expect(tokens[0].scopes).toEqual expectedScopes
-        expect(tokens[0].value).toEqual '   Given'
+      expect(tokens[0].scopes).toEqual expectedScopes
+      expect(tokens[0].value).toEqual '    Given'
 
-      it 'tokenizes When', ->
-        {tokens} = grammar.tokenizeLine '   When Do Something'
+    it 'tokenizes When', ->
+      {tokens} = grammar.tokenizeLine '    When Do Something'
 
-        expect(tokens[0].scopes).toEqual expectedScopes
-        expect(tokens[0].value).toEqual '   When'
+      expect(tokens[0].scopes).toEqual expectedScopes
+      expect(tokens[0].value).toEqual '    When'
 
-      it 'tokenizes Then', ->
-        {tokens} = grammar.tokenizeLine '   Then Do Something'
+    it 'tokenizes Then', ->
+      {tokens} = grammar.tokenizeLine '    Then Do Something'
 
-        expect(tokens[0].scopes).toEqual expectedScopes
-        expect(tokens[0].value).toEqual '   Then'
+      expect(tokens[0].scopes).toEqual expectedScopes
+      expect(tokens[0].value).toEqual '    Then'
 
-      it 'tokenizes And', ->
-        {tokens} = grammar.tokenizeLine '   And Do Something'
+    it 'tokenizes And', ->
+      {tokens} = grammar.tokenizeLine '    And Do Something'
 
-        expect(tokens[0].scopes).toEqual expectedScopes
-        expect(tokens[0].value).toEqual '   And'
+      expect(tokens[0].scopes).toEqual expectedScopes
+      expect(tokens[0].value).toEqual '    And'
 
-      it 'tokenizes But', ->
-        {tokens} = grammar.tokenizeLine '   But Do Something'
+    it 'tokenizes But', ->
+      {tokens} = grammar.tokenizeLine '    But Do Something'
 
-        expect(tokens[0].scopes).toEqual expectedScopes
-        expect(tokens[0].value).toEqual '   But'
+      expect(tokens[0].scopes).toEqual expectedScopes
+      expect(tokens[0].value).toEqual '    But'
