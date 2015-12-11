@@ -150,6 +150,46 @@ describe 'Robot Framework grammar', ->
         expect(tokens[0].value).toEqual line
         expect(tokens[0].scopes).toEqual ['text.robot', 'keyword.control.robot']
 
+    it 'tokenizes variable in keyword', ->
+      {tokens} = grammar.tokenizeLine 'Test Keyword ${myvar}'
+
+      expect(tokens.length).toEqual 4
+      expect(tokens[0].value).toEqual 'Test Keyword '
+      expect(tokens[0].scopes).toEqual ['text.robot', 'keyword.control.robot']
+
+      expect(tokens[1].value).toEqual '${'
+      expect(tokens[1].scopes).toEqual [
+        'text.robot',
+        'keyword.control.robot',
+        'punctuation.section.embedded.begin.robot',
+        'text.robot'
+      ]
+
+      expect(tokens[2].value).toEqual 'myvar'
+      expect(tokens[2].scopes).toEqual [
+        'text.robot',
+        'keyword.control.robot',
+        'variable.control.robot'
+      ]
+
+      expect(tokens[3].value).toEqual '}'
+      expect(tokens[3].scopes).toEqual [
+        'text.robot',
+        'keyword.control.robot',
+        'punctuation.section.embedded.end.robot',
+        'text.robot'
+      ]
+
+      {tokens} = grammar.tokenizeLine 'Test Keyword ${myvar} Awesome'
+
+      expect(tokens[0].value).toEqual 'Test Keyword '
+      expect(tokens[1].value).toEqual '${'
+      expect(tokens[2].value).toEqual 'myvar'
+      expect(tokens[3].value).toEqual '}'
+      expect(tokens[4].value).toEqual ' Awesome'
+      expect(tokens[4].scopes).toEqual ['text.robot', 'keyword.control.robot']
+
+
   describe 'tag', ->
     it 'tokenizes [<TagName>]', ->
       {tokens} = grammar.tokenizeLine '  [Documentation]'
