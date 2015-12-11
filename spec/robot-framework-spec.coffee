@@ -130,3 +130,18 @@ describe 'Robot Framework grammar', ->
 
         expect(tokens.length).toEqual 1
         expect(tokens[0].value).toEqual '    Press And Hold The Button'
+
+  describe 'testcase', ->
+
+    it 'tokenizes as a keyword.control.robot', ->
+      samples = [
+        'Do',
+        'Do Something',
+        'Do 9',
+        'Do "something"'
+      ].forEach (line) ->
+        {tokens} = grammar.tokenizeLine line
+
+        expect(tokens.length).toEqual 1
+        expect(tokens[0].value).toEqual line
+        expect(tokens[0].scopes).toEqual ['text.robot', 'keyword.control.robot']
