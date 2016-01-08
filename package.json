@@ -1,6 +1,6 @@
 {
   "name": "language-robot-framework",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Robot Framework syntax highlight for Atom",
   "repository": "https://github.com/wingyplus/language-robot-framework",
   "license": "MIT",
