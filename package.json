@@ -14,6 +14,6 @@
   "scripts": {
     "all": "npm run lint && npm run test",
     "test": "apm test",
-    "lint": "./node_modules/.bin/coffeelint spec && ./node_modules/.bin/coffeelint lib"
+    "lint": "./node_modules/.bin/coffeelint spec"
   }
 }
