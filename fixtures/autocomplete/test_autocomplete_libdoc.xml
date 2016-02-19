@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywordspec format="ROBOT" type="library" generated="20160218 14:15:33" name="Dialogs">
+<version>3.0</version>
+<scope>global</scope>
+<namedargs>yes</namedargs>
+<doc></doc>
+<kw name="Autocomplete libdoc test">
+<arguments>
+<arg>arg1</arg>
+<arg>arg2</arg>
+</arguments>
+<doc>Autocomplete libdoc test documentation</doc>
+<tags>
+</tags>
+</kw>
+</keywordspec>
