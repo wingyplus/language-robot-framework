@@ -1,6 +1,7 @@
 'comment': '\n\tRobot Framework syntax highlighting for txt format.\t\n\t'
 'fileTypes': [
   'robot'
+  'txt'
 ]
 'name': 'Robot Framework'
 'firstLineMatch': '\\*{3} (?i:Settings|Keywords|Variables|Test Cases) \\*{3}'
