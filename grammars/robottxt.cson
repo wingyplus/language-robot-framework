@@ -23,9 +23,14 @@
     'name': 'comment.robot'
   }
   {
-    'begin': '^[^ \t\n\*\|].+'
+    'begin': '^[^ \t\n\*\|]\\.+'
     'end': '$'
-    'name': 'keyword.control.robot'
+    'name': 'comment.robot'
+  }
+  {
+      'begin': '(^[^ \\t\\*\\n\\|]+)|((?<=^\\|)\\s+[^ \\t\\*\\n\\|]+)'
+      'end': '\\s{2}|\\t|$|\\s+(?=\\|)'
+      'name': 'keyword.robot'
   }
   {
     'match': '(^\\s+|\\t+)(Given|When|And|Then|But)'
