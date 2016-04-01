@@ -17,10 +17,7 @@
     'include': '#variables'
   }
   {
-    'match': '(?:^[\\s\\t]*)(#.*)$'
-    'captures':
-      '1':
-        'name': 'comment.line.robot'
+    'include': '#comment'
   }
   {
     'begin': '^[^ \t\n\*\|].+'
@@ -48,4 +45,9 @@
         'name': 'variable.language.robot'
       }
     ]
+  'comment':
+    'match': '(?:^[\\s\\t]*)(#.*)$'
+    'captures':
+      '1':
+        'name': 'comment.line.robot'
 'scopeName': 'text.robot'
