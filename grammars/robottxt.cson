@@ -10,8 +10,8 @@
     'name': 'string.robot.header'
   }
   {
-    'match': '\\[.*?\\]'
-    'name': 'storage.type.method.robot'
+    'match': '\\[.+\\]'
+    'name': 'entity.tag.name.robot'
   }
   {
     'include': '#scalar-variable'

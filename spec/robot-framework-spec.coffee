@@ -145,3 +145,10 @@ describe 'Robot Framework grammar', ->
         expect(tokens.length).toEqual 1
         expect(tokens[0].value).toEqual line
         expect(tokens[0].scopes).toEqual ['text.robot', 'keyword.control.robot']
+
+  describe 'tag', ->
+    it 'tokenizes [<TagName>]', ->
+      {tokens} = grammar.tokenizeLine '  [Documentation]'
+      expect(tokens.length).toEqual(2)
+      expect(tokens[1].value).toEqual '[Documentation]'
+      expect(tokens[1].scopes).toEqual ['text.robot', 'entity.tag.name.robot']
