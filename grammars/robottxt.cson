@@ -14,8 +14,13 @@
     'name': 'storage.type.method.robot'
   }
   {
-    'match': '(\\${.*?})|(@{.*?})|(&{.*?})'
-    'name': 'variable.language.robot'
+    'include': '#scalar-variable'
+  }
+  {
+    'include': '#list-variable'
+  }
+  {
+    'include': '#dict-variable'
   }
   {
     'begin': '^[\\s\\t]*#'
@@ -32,4 +37,15 @@
     'name': 'keyword.control.robot'
   }
 ]
+'repository':
+  'scalar-variable':
+    'match': '\\${.+}'
+    'name': 'variable.language.robot'
+  'list-variable':
+    'match': '@{.+}'
+    'name': 'variable.language.robot'
+  'dict-variable':
+    'match': '&{.+}'
+    'name': 'variable.language.robot'
+
 'scopeName': 'text.robot'
