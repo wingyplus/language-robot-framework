@@ -10,8 +10,7 @@
     'name': 'string.robot.header'
   }
   {
-    'match': '\\[.+\\]'
-    'name': 'entity.tag.name.robot'
+    'include': '#tag'
   }
   {
     'include': '#variables'
@@ -38,4 +37,7 @@
     'captures':
       '1':
         'name': 'comment.line.robot'
+  'tag':
+    'match': '\\[.+\\]'
+    'name': 'entity.tag.name.robot'
 'scopeName': 'text.robot'
