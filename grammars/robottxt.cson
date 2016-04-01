@@ -31,20 +31,8 @@
 ]
 'repository':
   'variables':
-    'patterns': [
-      {
-        'match': '\\${.+}'
-        'name': 'variable.language.robot'
-      }
-      {
-        'match': '@{.+}'
-        'name': 'variable.language.robot'
-      }
-      {
-        'match': '&{.+}'
-        'name': 'variable.language.robot'
-      }
-    ]
+    'match': '[\\$@&]{.+}'
+    'name': 'variable.language.robot'
   'comment':
     'match': '(?:^[\\s\\t]*)(#.*)$'
     'captures':
