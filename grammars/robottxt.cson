@@ -17,9 +17,10 @@
     'include': '#variables'
   }
   {
-    'begin': '^[\\s\\t]*#'
-    'end': '$'
-    'name': 'comment.robot'
+    'match': '(?:^[\\s\\t]*)(#.*)$'
+    'captures':
+      '1':
+        'name': 'comment.line.robot'
   }
   {
     'begin': '^[^ \t\n\*\|].+'
