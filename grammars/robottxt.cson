@@ -18,7 +18,7 @@
     'name': 'variable.language.robot'
   }
   {
-    'begin': '^(\\s*|\\t*)#'
+    'begin': '^[\\s\\t]*#'
     'end': '$'
     'name': 'comment.robot'
   }
