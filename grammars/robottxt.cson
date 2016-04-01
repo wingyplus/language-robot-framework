@@ -14,13 +14,7 @@
     'name': 'entity.tag.name.robot'
   }
   {
-    'include': '#scalar-variable'
-  }
-  {
-    'include': '#list-variable'
-  }
-  {
-    'include': '#dict-variable'
+    'include': '#variables'
   }
   {
     'begin': '^[\\s\\t]*#'
@@ -38,14 +32,19 @@
   }
 ]
 'repository':
-  'scalar-variable':
-    'match': '\\${.+}'
-    'name': 'variable.language.robot'
-  'list-variable':
-    'match': '@{.+}'
-    'name': 'variable.language.robot'
-  'dict-variable':
-    'match': '&{.+}'
-    'name': 'variable.language.robot'
-
+  'variables':
+    'patterns': [
+      {
+        'match': '\\${.+}'
+        'name': 'variable.language.robot'
+      }
+      {
+        'match': '@{.+}'
+        'name': 'variable.language.robot'
+      }
+      {
+        'match': '&{.+}'
+        'name': 'variable.language.robot'
+      }
+    ]
 'scopeName': 'text.robot'
