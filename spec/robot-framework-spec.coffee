@@ -41,50 +41,38 @@ describe 'Robot Framework grammar', ->
 
   describe 'variable', ->
 
-    describe 'scalar', ->
+    describe 'captures', ->
+      tokens = null
 
-      it 'tokenizes variable', ->
-        {tokens} = grammar.tokenizeLine '${var}'
+      beforeEach -> {tokens} = grammar.tokenizeLine '${var}'
 
-        expect(tokens[0].scopes).toEqual [
-          'text.robot',
-          'variable.language.robot'
-        ]
+      afterEach -> tokens = null
 
-      it 'tokenizes variable in step keyword', ->
-        {tokens} = grammar.tokenizeLine '   Do Some ${var} Keyword'
+      it 'tokenizes ${ as a begin punctuation', ->
+        expect(tokens[0].value).toEqual '${'
+        expect(tokens[0].scopes).toEqual ['text.robot', 'punctuation.section.embedded.begin.robot', 'text.robot']
 
-        expect(tokens[1].value).toEqual '${var}'
+      it 'tokenizes var as a robot variable', ->
+        expect(tokens[1].value).toEqual 'var'
+        expect(tokens[1].scopes).toEqual ['text.robot', 'variable.control.robot']
+
+      it 'tokenizes } as a end punctuation', ->
+        expect(tokens[2].value).toEqual '}'
+        expect(tokens[2].scopes).toEqual ['text.robot', 'punctuation.section.embedded.end.robot', 'text.robot']
 
     describe 'list', ->
 
-      it 'tokenizes variable', ->
-        {tokens} = grammar.tokenizeLine '@{list_var}'
+      it 'tokenizes @{ as a begin punctuation', ->
+        {tokens} = grammar.tokenizeLine '@{var}'
+        expect(tokens[0].value).toEqual '@{'
+        expect(tokens[0].scopes).toEqual ['text.robot', 'punctuation.section.embedded.begin.robot', 'text.robot']
 
-        expect(tokens[0].scopes).toEqual [
-          'text.robot',
-          'variable.language.robot'
-        ]
+    describe 'dict', ->
 
-      it 'tokenizes variable in step keyword', ->
-        {tokens} = grammar.tokenizeLine '   Do Some @{list_var} Keyword'
-
-        expect(tokens[1].value).toEqual '@{list_var}'
-
-    describe 'dictionary', ->
-
-      it 'tokenizes variable', ->
-        {tokens} = grammar.tokenizeLine '&{dict_var}'
-
-        expect(tokens[0].scopes).toEqual [
-          'text.robot',
-          'variable.language.robot'
-        ]
-
-      it 'tokenizes variable in step keyword', ->
-        {tokens} = grammar.tokenizeLine '   Do Some &{dict_var} Keyword'
-
-        expect(tokens[1].value).toEqual '&{dict_var}'
+      it 'tokenizes &{ as a begin punctuation', ->
+        {tokens} = grammar.tokenizeLine '&{var}'
+        expect(tokens[0].value).toEqual '&{'
+        expect(tokens[0].scopes).toEqual ['text.robot', 'punctuation.section.embedded.begin.robot', 'text.robot']
 
   describe 'bdd style', ->
 

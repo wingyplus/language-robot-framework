@@ -32,8 +32,19 @@
 ]
 'repository':
   'variables':
-    'match': '[\\$@&]{.+}'
-    'name': 'variable.language.robot'
+    'begin': '([\\$@&]{)'
+    'beginCaptures':
+      '0':
+        'name': 'punctuation.section.embedded.begin.robot'
+      '1':
+        'name': 'text.robot'
+    'end': '(})'
+    'contentName': 'variable.control.robot'
+    'endCaptures':
+      '0':
+        'name': 'punctuation.section.embedded.end.robot'
+      '1':
+        'name': 'text.robot'
   'comment':
     'match': '(?:^[\\s\\t]*)(#.*)$'
     'captures':
