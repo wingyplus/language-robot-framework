@@ -24,8 +24,10 @@
     'name': 'keyword.control.robot'
   }
   {
-    'match': '(^\\s+|\\t+)(Given|When|And|Then|But)'
-    'name': 'keyword.control.robot'
+    'match': '(?:^[\\s\\t]+)(Given|When|And|Then|But)'
+    'captures':
+      '1':
+        'name': 'keyword.control.robot'
   }
 ]
 'repository':
