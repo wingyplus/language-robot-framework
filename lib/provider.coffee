@@ -69,25 +69,35 @@ processStandardDefinitions = (settings) ->
   standardDefinitionsDir = pathUtils.join(__dirname, '../standard-definitions')
   autocomplete.reset(standardDefinitionsDir)
   if settings.suggestBuiltIn
-    processStandardDefinitionsFile(standardDefinitionsDir, 'BuiltIn.xml', settings)
+    processStandardDefinitionsFile(standardDefinitionsDir,
+    'BuiltIn.xml', settings)
   if settings.suggestCollections
-    processStandardDefinitionsFile(standardDefinitionsDir, 'Collections.xml', settings)
+    processStandardDefinitionsFile(standardDefinitionsDir,
+    'Collections.xml', settings)
   if settings.suggestDateTime
-    processStandardDefinitionsFile(standardDefinitionsDir, 'DateTime.xml', settings)
+    processStandardDefinitionsFile(standardDefinitionsDir,
+    'DateTime.xml', settings)
   if settings.suggestDialogs
-    processStandardDefinitionsFile(standardDefinitionsDir, 'Dialogs.xml', settings)
+    processStandardDefinitionsFile(standardDefinitionsDir,
+    'Dialogs.xml', settings)
   if settings.suggestOperatingSystem
-    processStandardDefinitionsFile(standardDefinitionsDir, 'OperatingSystem.xml', settings)
+    processStandardDefinitionsFile(standardDefinitionsDir,
+    'OperatingSystem.xml', settings)
   if settings.suggestProcess
-    processStandardDefinitionsFile(standardDefinitionsDir, 'Process.xml', settings)
+    processStandardDefinitionsFile(standardDefinitionsDir,
+    'Process.xml', settings)
   if settings.suggestScreenshot
-    processStandardDefinitionsFile(standardDefinitionsDir, 'Screenshot.xml', settings)
+    processStandardDefinitionsFile(standardDefinitionsDir,
+    'Screenshot.xml', settings)
   if settings.suggestString
-    processStandardDefinitionsFile(standardDefinitionsDir, 'String.xml', settings)
+    processStandardDefinitionsFile(standardDefinitionsDir,
+    'String.xml', settings)
   if settings.suggestTelnet
-    processStandardDefinitionsFile(standardDefinitionsDir, 'Telnet.xml', settings)
+    processStandardDefinitionsFile(standardDefinitionsDir,
+    'Telnet.xml', settings)
   if settings.suggestXML
-    processStandardDefinitionsFile(standardDefinitionsDir, 'XML.xml', settings)
+    processStandardDefinitionsFile(standardDefinitionsDir,
+    'XML.xml', settings)
 
 readConfig = ()->
   settings =
