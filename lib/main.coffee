@@ -8,7 +8,8 @@ module.exports =
       type: 'object'
       properties:
         excludeDirectories:
-          title: 'Names of directories or files to be excluded from showing suggestions (comma sepparated)'
+          title: 'Names of directories or files to be excluded from showing '+
+          'suggestions (comma sepparated)'
           type: 'array'
           default: []
           items:
