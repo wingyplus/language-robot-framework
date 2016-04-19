@@ -2,7 +2,7 @@ robotParser = require('../lib/parse-robot')
 libdocParser = require('../lib/parse-libdoc')
 fs = require 'fs'
 
-# Credits - https://raw.githubusercontent.com/atom/autocomplete-atom-api/master/spec/provider-spec.coffee
+# Credits - https://raw.githubusercontent.com/atom/autocomplete-atom-api
 getCompletions = (editor, provider)->
   cursor = editor.getLastCursor()
   start = cursor.getBeginningOfCurrentWordBufferPosition()
@@ -21,8 +21,10 @@ describe "Robot Framework keywords autocompletions", ->
   beforeEach ->
     waitsForPromise -> atom.packages.activatePackage('language-robot-framework')
     runs ->
-      provider = atom.packages.getActivePackage('language-robot-framework').mainModule.getProvider()
-    waitsForPromise -> atom.workspace.open('autocomplete/test_autocomplete_keywords.robot')
+      provider = atom.packages.getActivePackage('language-robot-framework')
+      .mainModule.getProvider()
+    waitsForPromise ->
+      atom.workspace.open('autocomplete/test_autocomplete_keywords.robot')
     waitsFor ->
       return !provider.loading
     , 'Provider should finish loading', 500
@@ -35,7 +37,8 @@ describe "Robot Framework keywords autocompletions", ->
     waitsForPromise ->
       getCompletions(editor, provider).then (suggestions) ->
         expect(suggestions.length).toEqual(1)
-        expect(suggestions[0].displayText).toEqual('Call Method - object, method_name, *args, **kwargs')
+        expect(suggestions[0].displayText)
+        .toEqual('Call Method - object, method_name, *args, **kwargs')
   it 'suggest keywords in current editor', ->
     editor.setCursorBufferPosition([Infinity, Infinity])
     editor.insertText(' runprog')
@@ -43,7 +46,7 @@ describe "Robot Framework keywords autocompletions", ->
       getCompletions(editor, provider).then (suggestions) ->
         expect(suggestions.length).toEqual(1)
         expect(suggestions[0]?.displayText).toEqual('Run Program - args')
-  it 'suggest all keywords from that file when prefix is identical with file name', ->
+  it 'suggest all keywords when prefix is identical with file name', ->
     editor.setCursorBufferPosition([Infinity, Infinity])
     editor.insertText(' fileprefix')
     waitsForPromise ->
@@ -75,7 +78,8 @@ describe "Robot Framework keywords autocompletions", ->
     waitsForPromise ->
       getCompletions(editor, provider).then (suggestions) ->
         expect(suggestions.length).toBeGreaterThan(0)
-        expect(suggestions[0]?.displayText).toEqual('With arguments - arg1, arg2, arg3')
+        expect(suggestions[0]?.displayText)
+        .toEqual('With arguments - arg1, arg2, arg3')
     runs ->
       editor.setCursorBufferPosition([Infinity, Infinity])
       editor.insertText(' withoutarg')
@@ -89,22 +93,26 @@ describe "Robot Framework keywords autocompletions", ->
     waitsForPromise ->
       getCompletions(editor, provider).then (suggestions) ->
         expect(suggestions.length).toBeGreaterThan(0)
-        expect(suggestions[0]?.displayText).toEqual('With default value arguments - arg1, arg2, arg3, arg4, arg5, arg6')
+        expect(suggestions[0]?.displayText).toEqual
+        ('With default value arguments - arg1, arg2, arg3, arg4, arg5, arg6')
     runs ->
       editor.setCursorBufferPosition([Infinity, Infinity])
       editor.insertText(' withembed')
     waitsForPromise ->
       getCompletions(editor, provider).then (suggestions) ->
         expect(suggestions.length).toBeGreaterThan(0)
-        expect(suggestions[0]?.displayText).toEqual('With ${embedded} arguments')
+        expect(suggestions[0]?.displayText)
+        .toEqual('With ${embedded} arguments')
 
 describe 'Autocomplete suggestion order', ->
   [editor, provider] = []
   beforeEach ->
     waitsForPromise -> atom.packages.activatePackage('language-robot-framework')
     runs ->
-      provider = atom.packages.getActivePackage('language-robot-framework').mainModule.getProvider()
-    waitsForPromise -> atom.workspace.open('autocomplete/test_autocomplete_keywords.robot')
+      provider = atom.packages.getActivePackage('language-robot-framework')
+      .mainModule.getProvider()
+    waitsForPromise ->
+      atom.workspace.open('autocomplete/test_autocomplete_keywords.robot')
     waitsFor ->
       return !provider.loading
     , 'Provider should finish loading', 500
@@ -124,8 +132,10 @@ describe 'Autocomplete configuration', ->
   beforeEach ->
     waitsForPromise -> atom.packages.activatePackage('language-robot-framework')
     runs ->
-      provider = atom.packages.getActivePackage('language-robot-framework').mainModule.getProvider()
-    waitsForPromise -> atom.workspace.open('autocomplete/test_autocomplete_keywords.robot')
+      provider = atom.packages.getActivePackage('language-robot-framework')
+      .mainModule.getProvider()
+    waitsForPromise ->
+      atom.workspace.open('autocomplete/test_autocomplete_keywords.robot')
     waitsFor ->
       return !provider.loading
     , 'Provider should finish loading', 500
@@ -134,7 +144,7 @@ describe 'Autocomplete configuration', ->
 
   it 'react on showArguments configuration changes', ->
     runs ->
-      atom.config.set('language-robot-framework.autocomplete.showArguments', true)
+      atom.config.set("#{CFG_KEY}.showArguments", true)
     waitsFor ->
       return !provider.loading
     , 'Provider should finish loading', 500
@@ -146,7 +156,7 @@ describe 'Autocomplete configuration', ->
         expect(suggestions.length).toEqual(1)
         expect(suggestions[0]?.displayText).toEqual('Run Program - args')
     runs ->
-      atom.config.set('language-robot-framework.autocomplete.showArguments', false)
+      atom.config.set("#{CFG_KEY}.showArguments", false)
     waitsFor ->
       return !provider.loading
     , 'Provider should finish loading', 500
@@ -159,7 +169,7 @@ describe 'Autocomplete configuration', ->
         expect(suggestions[0]?.displayText).toEqual('Run Program')
   it 'react on excludeDirectories configuration changes', ->
     runs ->
-      atom.config.set('language-robot-framework.autocomplete.excludeDirectories', [])
+      atom.config.set("#{CFG_KEY}.excludeDirectories", [])
     waitsFor ->
       return !provider.loading
     , 'Provider should finish loading', 500
@@ -171,7 +181,7 @@ describe 'Autocomplete configuration', ->
           expect(suggestions.length).toEqual(1)
           expect(suggestions[0]?.displayText).toEqual('Run Program - args')
     runs ->
-      atom.config.set('language-robot-framework.autocomplete.excludeDirectories', ['autocomplete'])
+      atom.config.set("#{CFG_KEY}.excludeDirectories", ['autocomplete'])
     waitsFor ->
       return !provider.loading
     , 'Provider should finish loading', 500
@@ -188,9 +198,10 @@ describe 'Autocomplete configuration', ->
       waitsForPromise ->
         getCompletions(editor, provider).then (suggestions) ->
           expect(suggestions.length).toEqual(1)
-          expect(suggestions[0].displayText).toEqual('Call Method - object, method_name, *args, **kwargs')
+          expect(suggestions[0].displayText)
+          .toEqual('Call Method - object, method_name, *args, **kwargs')
     runs ->
-      atom.config.set('language-robot-framework.autocomplete.standardLibrary.suggestBuiltIn', false)
+      atom.config.set("#{CFG_KEY}.standardLibrary.suggestBuiltIn", false)
     waitsFor ->
       return !provider.loading
     , 'Provider should finish loading', 500
@@ -207,9 +218,10 @@ describe 'Autocomplete configuration', ->
       waitsForPromise ->
         getCompletions(editor, provider).then (suggestions) ->
           expect(suggestions.length).toEqual(1)
-          expect(suggestions[0].displayText).toEqual('Autocomplete libdoc test - arg1, arg2')
+          expect(suggestions[0].displayText)
+          .toEqual('Autocomplete libdoc test - arg1, arg2')
     runs ->
-      atom.config.set('language-robot-framework.autocomplete.processLibdocFiles', false)
+      atom.config.set("#{CFG_KEY}.processLibdocFiles", false)
     waitsFor ->
       return !provider.loading
     , 'Provider should finish loading', 500
@@ -245,54 +257,54 @@ describe "Robot file detection", ->
 
     content = fs.readFileSync("#{fixturePath}/detect-ok1.robot").toString()
     isRobot = robotParser.isRobot(content)
-    expect(isRobot).toBe(true);
+    expect(isRobot).toBe(true)
 
     content = fs.readFileSync("#{fixturePath}/detect-ok2.robot").toString()
     isRobot = robotParser.isRobot(content)
-    expect(isRobot).toBe(true);
+    expect(isRobot).toBe(true)
 
     content = fs.readFileSync("#{fixturePath}/detect-ok3.robot").toString()
     isRobot = robotParser.isRobot(content)
-    expect(isRobot).toBe(true);
+    expect(isRobot).toBe(true)
 
     content = fs.readFileSync("#{fixturePath}/detect-ok4.robot").toString()
     isRobot = robotParser.isRobot(content)
-    expect(isRobot).toBe(true);
+    expect(isRobot).toBe(true)
 
     content = fs.readFileSync("#{fixturePath}/detect-ok5.robot").toString()
     isRobot = robotParser.isRobot(content)
-    expect(isRobot).toBe(true);
+    expect(isRobot).toBe(true)
 
     content = fs.readFileSync("#{fixturePath}/detect-ok6.robot").toString()
     isRobot = robotParser.isRobot(content)
-    expect(isRobot).toBe(true);
+    expect(isRobot).toBe(true)
 
     content = fs.readFileSync("#{fixturePath}/detect-ok7.robot").toString()
     isRobot = robotParser.isRobot(content)
-    expect(isRobot).toBe(true);
+    expect(isRobot).toBe(true)
 
   it 'should detect incorrect robot files', ->
     fixturePath = "#{__dirname}/../fixtures/autocomplete/detectRobot"
 
     content = fs.readFileSync("#{fixturePath}/detect-wrong1.robot").toString()
     isRobot = robotParser.isRobot(content)
-    expect(isRobot).toBe(false);
+    expect(isRobot).toBe(false)
 
     content = fs.readFileSync("#{fixturePath}/detect-wrong2.robot").toString()
     isRobot = robotParser.isRobot(content)
-    expect(isRobot).toBe(false);
+    expect(isRobot).toBe(false)
 
     content = fs.readFileSync("#{fixturePath}/detect-wrong3.robot").toString()
     isRobot = robotParser.isRobot(content)
-    expect(isRobot).toBe(false);
+    expect(isRobot).toBe(false)
 
     content = fs.readFileSync("#{fixturePath}/detect-wrong4.robot").toString()
     isRobot = robotParser.isRobot(content)
-    expect(isRobot).toBe(false);
+    expect(isRobot).toBe(false)
 
     content = fs.readFileSync("#{fixturePath}/detect-wrong5.robot").toString()
     isRobot = robotParser.isRobot(content)
-    expect(isRobot).toBe(false);
+    expect(isRobot).toBe(false)
 
 describe "Libdoc xml file detection", ->
   it 'should detect correct libdoc xml files', ->
@@ -300,10 +312,12 @@ describe "Libdoc xml file detection", ->
 
     content = fs.readFileSync("#{fixturePath}/libdoc-ok.xml").toString()
     isLibdoc = libdocParser.isLibdoc(content)
-    expect(isLibdoc).toBe(true);
+    expect(isLibdoc).toBe(true)
   it 'should detect incorrect libdoc xml files', ->
     fixturePath = "#{__dirname}/../fixtures/autocomplete/detectLibdocXml"
 
     content = fs.readFileSync("#{fixturePath}/libdoc-wrong.xml").toString()
     isLibdoc = libdocParser.isLibdoc(content)
-    expect(isLibdoc).toBe(false);
+    expect(isLibdoc).toBe(false)
+
+CFG_KEY = 'language-robot-framework.autocomplete'
