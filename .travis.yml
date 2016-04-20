@@ -1,10 +1,35 @@
-sudo: false
-language: objective-c
 notifications:
   email:
     on_success: never
     on_failure: change
-  slack:
-    secure: E+3NFmuoejh96GQVYnffT6PQta2+bbXkLwmZ3y7SIQ/C+6OsnQTOr+hgxJDeN/TNZMstwON3OQXAK1KMvj3Nbe2Tp8B3QfNCbS+onwfqhA547cchYtwiIWaf0e9YRVx4JrzeLRgKgpUc8r3VolaU4a9+T3n35m88ajQ3xWg5L0o=
-script: curl -s https://raw.githubusercontent.com/atom/ci/master/build-package.sh
-  | sh
+
+script: 'curl -s https://raw.githubusercontent.com/atom/ci/master/build-package.sh | sh'
+
+git:
+  depth: 10
+
+sudo: false
+
+os:
+  - linux
+  - osx
+
+env:
+  global:
+    - APM_TEST_PACKAGES=""
+
+  matrix:
+    - ATOM_CHANNEL=stable
+    - ATOM_CHANNEL=beta
+
+addons:
+  apt:
+    packages:
+    - build-essential
+    - git
+    - libgnome-keyring-dev
+    - fakeroot
+
+branches:
+  only:
+    - master
