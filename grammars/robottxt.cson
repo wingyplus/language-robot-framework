@@ -51,6 +51,10 @@
       '1':
         'name': 'comment.line.robot'
   'tag':
-    'match': '\\[.+\\]'
-    'name': 'entity.tag.name.robot'
+    'match': '^[\\s\\t]*(\\[.+\\])'
+    'captures':
+      '0':
+        'name': 'entity.tag.name.robot'
+      '1':
+        'name': 'text.robot'
 'scopeName': 'text.robot'
