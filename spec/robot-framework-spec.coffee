@@ -155,7 +155,8 @@ describe 'Robot Framework grammar', ->
       {tokens} = grammar.tokenizeLine '  [Documentation]'
       expect(tokens.length).toEqual(2)
       expect(tokens[1].value).toEqual '[Documentation]'
-      expect(tokens[1].scopes).toEqual ['text.robot', 'entity.tag.name.robot', 'text.robot']
+      expect(tokens[1].scopes).toEqual [
+        'text.robot', 'entity.tag.name.robot', 'text.robot']
 
     it 'does not tokenizes css selector', ->
       {tokens} = grammar.tokenizeLine '  Somebody  css=input[name=value]'
