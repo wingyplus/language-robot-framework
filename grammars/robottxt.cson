@@ -21,7 +21,7 @@
   {
     'begin': '^(?![ \t\n\*\|])'
     'contentName': 'keyword.control.robot'
-    'end': '$'
+    'end': '\\s{2,}|\\t|$'
     'patterns': [
       {
         'include': '#variables'

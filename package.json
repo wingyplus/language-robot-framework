@@ -9,6 +9,7 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "atom-grammar-test": "^0.6.2",
     "coffeelint": "^1.10.0"
   },
   "scripts": {
