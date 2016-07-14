@@ -207,4 +207,5 @@ describe 'Robot Framework grammar', ->
       expect(tokens[0].value).toEqual '  Somebody  css=input[name=value]'
       expect(tokens[0].scopes).toEqual ['text.robot']
 
-  grammarTest(path.join(__dirname, "fixtures", "test_highlight_first_keyword.robot"))
+  grammarTest(
+    path.join(__dirname, "fixtures", "test_separate_keyword_and_value.robot"))

@@ -1,4 +1,4 @@
-describe 'Robot Framework on .txt', ->
+xdescribe 'Robot Framework on .txt', ->
 
   it 'should change grammar to text.robot when first line has robot header', ->
     waitsForPromise ->
