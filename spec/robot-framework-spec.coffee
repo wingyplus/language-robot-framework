@@ -35,7 +35,7 @@ describe 'Robot Framework grammar', ->
       expect(tokens[0].scopes).toEqual ['text.robot', 'comment.line.robot']
       expect(tokens[1].value).toEqual '\n'
       expect(tokens[2].value).toEqual '    '
-      expect(tokens[3]).value).toEqual 'Step'
+      expect(tokens[3].value).toEqual 'Step'
       expect(tokens[3].scopes).toEqual ['keyword.control.robot']
 
     it 'does not tokenizes comment', ->
