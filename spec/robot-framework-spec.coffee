@@ -36,16 +36,16 @@ describe 'Robot Framework grammar', ->
       expect(tokens[1].value).toEqual '\n'
       expect(tokens[2].value).toEqual '    '
       expect(tokens[3].value).toEqual 'Step'
-      expect(tokens[3].scopes).toEqual ['keyword.control.robot']
+      expect(tokens[3].scopes).toEqual ['text.robot', 'keyword.control.robot']
 
     it 'does not tokenizes comment', ->
       {tokens} = grammar.tokenizeLine '    This is step    #id'
 
       expect(tokens[0].value).toEqual '    '
       expect(tokens[1].value).toEqual 'This is step'
-      expect(tokens[1].scopes).toEqual ['keyword.control.robot']
+      expect(tokens[1].scopes).toEqual ['text.robot', 'keyword.control.robot']
       expect(tokens[2].value).toEqual '    '
-      expect(tokens[3].value).toEqual '#d'
+      expect(tokens[3].value).toEqual '#id'
       expect(tokens[3].scopes).toEqual ['text.robot']
 
   describe 'variable', ->
