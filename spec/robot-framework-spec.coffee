@@ -110,31 +110,31 @@ describe 'Robot Framework grammar', ->
       {tokens} = grammar.tokenizeLine '    Given Do Something'
 
       expect(tokens[1].scopes).toEqual expectedScopes
-      expect(tokens[1].value).toEqual 'Given'
+      expect(tokens[1].value).toEqual 'Given Do Something'
 
     it 'tokenizes When', ->
       {tokens} = grammar.tokenizeLine '    When Do Something'
 
       expect(tokens[1].scopes).toEqual expectedScopes
-      expect(tokens[1].value).toEqual 'When'
+      expect(tokens[1].value).toEqual 'When Do Something'
 
     it 'tokenizes Then', ->
       {tokens} = grammar.tokenizeLine '    Then Do Something'
 
       expect(tokens[1].scopes).toEqual expectedScopes
-      expect(tokens[1].value).toEqual 'Then'
+      expect(tokens[1].value).toEqual 'Then Do Something'
 
     it 'tokenizes And', ->
       {tokens} = grammar.tokenizeLine '    And Do Something'
 
       expect(tokens[1].scopes).toEqual expectedScopes
-      expect(tokens[1].value).toEqual 'And'
+      expect(tokens[1].value).toEqual 'And Do Something'
 
     it 'tokenizes But', ->
       {tokens} = grammar.tokenizeLine '    But Do Something'
 
       expect(tokens[1].scopes).toEqual expectedScopes
-      expect(tokens[1].value).toEqual 'But'
+      expect(tokens[1].value).toEqual 'But Do Something'
 
     describe 'issue 12', ->
 
