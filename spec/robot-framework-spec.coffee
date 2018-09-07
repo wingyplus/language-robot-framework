@@ -138,11 +138,11 @@ describe 'Robot Framework grammar', ->
 
     describe 'issue 12', ->
 
-      it "should tokenizes 'And' when it isn't at the start of a keyword", ->
+      it "should not tokenize 'And' when it isn't at the start of a keyword", ->
         {tokens} = grammar.tokenizeLine '    Press And Hold The Button'
 
-        expect(tokens.length).toEqual 1
-        expect(tokens[0].value).toEqual '    Press And Hold The Button'
+        expect(tokens.length).toEqual 2
+        expect(tokens[1].value).toEqual 'Press And Hold The Button'
 
   describe 'testcase', ->
 
