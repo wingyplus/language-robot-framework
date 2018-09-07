@@ -209,9 +209,9 @@ describe 'Robot Framework grammar', ->
 
     it 'does not tokenizes css selector', ->
       {tokens} = grammar.tokenizeLine '  Somebody  css=input[name=value]'
-      expect(tokens.length).toEqual(1)
-      expect(tokens[0].value).toEqual '  Somebody  css=input[name=value]'
-      expect(tokens[0].scopes).toEqual ['text.robot']
+      expect(tokens.length).toEqual(4)
+      expect(tokens[3].value).toEqual 'css=input[name=value]'
+      expect(tokens[3].scopes).toEqual ['text.robot']
 
   grammarTest(
     path.join(__dirname, "fixtures", "test_separate_keyword_and_value.robot"))
