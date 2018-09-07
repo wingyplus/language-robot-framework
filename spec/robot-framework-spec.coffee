@@ -33,14 +33,20 @@ describe 'Robot Framework grammar', ->
 
       expect(tokens[0].value).toEqual '# Test Case'
       expect(tokens[0].scopes).toEqual ['text.robot', 'comment.line.robot']
-      expect(tokens[1].value).toEqual '\n    Step'
-      expect(tokens[1].scopes).toEqual ['text.robot']
+      expect(tokens[1].value).toEqual '\n'
+      expect(tokens[2].value).toEqual '    '
+      expect(tokens[3].value).toEqual 'Step'
+      expect(tokens[3].scopes).toEqual ['text.robot', 'keyword.control.robot']
 
     it 'does not tokenizes comment', ->
       {tokens} = grammar.tokenizeLine '    This is step    #id'
 
-      expect(tokens[0].value).toEqual '    This is step    #id'
-      expect(tokens[0].scopes).toEqual ['text.robot']
+      expect(tokens[0].value).toEqual '    '
+      expect(tokens[1].value).toEqual 'This is step'
+      expect(tokens[1].scopes).toEqual ['text.robot', 'keyword.control.robot']
+      expect(tokens[2].value).toEqual '    '
+      expect(tokens[3].value).toEqual '#id'
+      expect(tokens[3].scopes).toEqual ['text.robot']
 
   describe 'variable', ->
 
@@ -104,39 +110,39 @@ describe 'Robot Framework grammar', ->
       {tokens} = grammar.tokenizeLine '    Given Do Something'
 
       expect(tokens[1].scopes).toEqual expectedScopes
-      expect(tokens[1].value).toEqual 'Given'
+      expect(tokens[1].value).toEqual 'Given Do Something'
 
     it 'tokenizes When', ->
       {tokens} = grammar.tokenizeLine '    When Do Something'
 
       expect(tokens[1].scopes).toEqual expectedScopes
-      expect(tokens[1].value).toEqual 'When'
+      expect(tokens[1].value).toEqual 'When Do Something'
 
     it 'tokenizes Then', ->
       {tokens} = grammar.tokenizeLine '    Then Do Something'
 
       expect(tokens[1].scopes).toEqual expectedScopes
-      expect(tokens[1].value).toEqual 'Then'
+      expect(tokens[1].value).toEqual 'Then Do Something'
 
     it 'tokenizes And', ->
       {tokens} = grammar.tokenizeLine '    And Do Something'
 
       expect(tokens[1].scopes).toEqual expectedScopes
-      expect(tokens[1].value).toEqual 'And'
+      expect(tokens[1].value).toEqual 'And Do Something'
 
     it 'tokenizes But', ->
       {tokens} = grammar.tokenizeLine '    But Do Something'
 
       expect(tokens[1].scopes).toEqual expectedScopes
-      expect(tokens[1].value).toEqual 'But'
+      expect(tokens[1].value).toEqual 'But Do Something'
 
     describe 'issue 12', ->
 
-      it "should tokenizes 'And' when it isn't at the start of a keyword", ->
+      it "should not tokenize 'And' when it isn't at the start of a keyword", ->
         {tokens} = grammar.tokenizeLine '    Press And Hold The Button'
 
-        expect(tokens.length).toEqual 1
-        expect(tokens[0].value).toEqual '    Press And Hold The Button'
+        expect(tokens.length).toEqual 2
+        expect(tokens[1].value).toEqual 'Press And Hold The Button'
 
   describe 'testcase', ->
 
@@ -203,9 +209,9 @@ describe 'Robot Framework grammar', ->
 
     it 'does not tokenizes css selector', ->
       {tokens} = grammar.tokenizeLine '  Somebody  css=input[name=value]'
-      expect(tokens.length).toEqual(1)
-      expect(tokens[0].value).toEqual '  Somebody  css=input[name=value]'
-      expect(tokens[0].scopes).toEqual ['text.robot']
+      expect(tokens.length).toEqual(4)
+      expect(tokens[3].value).toEqual 'css=input[name=value]'
+      expect(tokens[3].scopes).toEqual ['text.robot']
 
   grammarTest(
     path.join(__dirname, "fixtures", "test_separate_keyword_and_value.robot"))

@@ -19,7 +19,10 @@
     'include': '#comment'
   }
   {
-    'begin': '^(?![ \t\n\*\|])'
+    'include': '#keyword'
+  }
+  {
+    'begin': '^(?![ \\t\\n\\*\\|])'
     'contentName': 'keyword.control.robot'
     'end': '\\s{2,}|\\t|$'
     'patterns': [
@@ -28,6 +31,16 @@
       }
     ]
   }
+  {
+    'begin': '^([ \\t]+)(?=[a-zA-Z])'
+    'contentName': 'keyword.control.robot'
+    'end': '\\s{2,}|\\t|$'
+    'patterns': [
+      {
+        'include': '#variables'
+      }
+    ]
+  }  
   {
     'match': '(?:^[\\s\\t]+)(Given|When|And|Then|But)'
     'captures':
@@ -62,4 +75,8 @@
         'name': 'entity.tag.name.robot'
       '1':
         'name': 'text.robot'
+  'keyword':
+    'begin': '\\=[ \\t]+'
+    'contentName': 'keyword.control.robot'
+    'end': '\\s{2,}|\\t|$'
 'scopeName': 'text.robot'
