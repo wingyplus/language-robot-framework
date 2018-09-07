@@ -19,6 +19,9 @@
     'include': '#comment'
   }
   {
+    'include': '#keyword'
+  }
+  {
     'begin': '^(?![ \\t\\n\\*\\|])'
     'contentName': 'keyword.control.robot'
     'end': '\\s{2,}|\\t|$'
@@ -28,16 +31,6 @@
       }
     ]
   }
-  {
-    'begin': '^([ \\t]+)\\$\\{.+?\\=([ \\t]+)'
-    'contentName': 'keyword.control.robot'
-    'end': '\\s{2,}|\\t|$'
-    'patterns': [
-      {
-        'include': '#variables'
-      }
-    ]
-  }  
   {
     'begin': '^([ \\t]+)(?=[a-zA-Z])'
     'contentName': 'keyword.control.robot'
@@ -82,4 +75,8 @@
         'name': 'entity.tag.name.robot'
       '1':
         'name': 'text.robot'
+  'keyword':
+    'begin': '\\=[ \\t]+'
+    'contentName': 'keyword.control.robot'
+    'end': '\\s{2,}|\\t|$'
 'scopeName': 'text.robot'
