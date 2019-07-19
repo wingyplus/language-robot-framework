@@ -76,7 +76,7 @@
       '1':
         'name': 'text.robot'
   'keyword':
-    'begin': '\\=[ \\t]+'
+    'begin': '\\=(\\s{2,}|\\t)'
     'contentName': 'keyword.control.robot'
     'end': '\\s{2,}|\\t|$'
 'scopeName': 'text.robot'
